@@ -2,8 +2,9 @@ require 'log_ripper'
 
 class RipperManager
 
- def initialize( pattern_file )
+ def initialize( pattern_file, line_decorator )
   @r = LogRipper.new
+  @decorator = line_decorator
   process( pattern_file ) 
  end
 
@@ -22,8 +23,7 @@ class RipperManager
  def process_pattern( pattern ) 
   return if pattern.empty? || pattern =~ /^#/
   #raise "Expected print <xpath>" unless tokens.size == 2
-  #@r.on_path( Regexp.new(pattern.chomp) ) { |e| puts "---> ohoh: #{e}" }
-  @r.on_path( /#{pattern.chomp}/ ) { |e| puts e }
+  @r.on_path( /#{pattern.chomp}/ ) { |e| puts @decorator.decorate( e ) }
  end
 
 end
