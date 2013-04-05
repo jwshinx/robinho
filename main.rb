@@ -4,8 +4,8 @@ require 'log_ripper'
 
 puts '---> Start <----------------------------------------------------------------'
 
-lr = LogRipper.new do |lr| 
- lr.on_path( /CACHE/ ) { |t| puts "---> gaga: #{t}" }
+lr = LogRipper.new do
+ on_path( /CACHE/ ) { |t| puts "---> gaga: #{t}" }
 end
 lr.run( 'development.log' )
 

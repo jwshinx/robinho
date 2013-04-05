@@ -2,7 +2,8 @@ class LogRipper
 
  def initialize( &block )
   @path_actions = {}
-  block.call( self ) if block
+  #block.call( self ) if block
+  instance_eval( &block ) if block
  end
 
  def on_path( path, &block )
