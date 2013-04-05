@@ -4,13 +4,24 @@ class ToHamlDecorator
  end
 
  def decorate text
-  puts "---> in decorate text: [#{text.chomp}]"
+=begin
   text.chomp.split.each do |token| 
-   puts "---> [#{compose_style}]" if token =~ /Rendered/ 
+   if token =~ /Rendered/ 
+    style_clause = compose_style
+    style puts "---> [#{compose_style}]" 
+   end
   end
-  text
+=end
+  compose_span( text, compose_style )
  end
  
+ def compose_span text, style
+  str = "%span"
+  #unless compose_span.nil? || compose_span == ''
+  str << "{#{style}}" 
+  str << " #{text}"
+ end
+
  def compose_style
   str = ":style=>'"
   str << red_font 
