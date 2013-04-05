@@ -4,17 +4,9 @@ require 'log_ripper'
 
 puts '---> Start <----------------------------------------------------------------'
 
-log = LogFile.new("development.log")
-
-buffer = 100
-log.interval = buffer 
-log.backward(buffer)
-log.tail(buffer) do |line| 
- puts line unless line =~ /DEPRECATION/
+lr = LogRipper.new do |lr| 
+ lr.on_path( /CACHE/ ) { |t| puts "---> gaga: #{t}" }
 end
-
-lr = LogRipper.new 
-lr.on_path( 'CACHE' ) { |t| puts "---> gaga: #{t}" }
 lr.run( 'development.log' )
 
 
