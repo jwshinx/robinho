@@ -1,0 +1,501 @@
+  Subitem Load (1.2ms)  SELECT `subitems`.* FROM `subitems` WHERE (`subitems`.subscription_id = 1)
+  Item Load (0.1ms)  SELECT `items`.* FROM `items` WHERE `items`.`ListID` = '80000002-1299559955' LIMIT 1
+  Itemsupp Load (0.1ms)  SELECT `itemsupps`.* FROM `itemsupps` WHERE (`itemsupps`.item_id = '80000002-1299559955') LIMIT 1
+  CACHE (0.0ms)  SELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 1 LIMIT 1
+  CACHE (0.0ms)  SELECT `systems`.* FROM `systems` WHERE `systems`.`id` = 2 LIMIT 1
+  CACHE (0.0ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '80000017-1299276009' LIMIT 1
+Rendered customers/_subscriptions_list.html.haml (1313.1ms)
+Rendered customers/_disconnects.html.haml (9.7ms)
+Rendered customers/_notes_list.html.haml (7.6ms)
+Rendered customers/_customer_info.html.haml (218.3ms)
+Rendered customers/_general.html.haml (1561.1ms)
+Completed 200 OK in 2486ms (Views: 1539.6ms | ActiveRecord: 36.2ms)
+
+
+Started GET "/cashiers/new/80000017-1299276009" for 208.80.69.98 at Thu Apr 04 16:16:10 -0700 2013
+  Processing by CashiersController#new as HTML
+  Parameters: {"id"=>"80000017-1299276009"}
+  SQL (1.0ms)  describe `teams_users`
+  SQL (0.7ms)  describe `cities_users`
+  SQL (0.7ms)  describe `user_assignments_users`
+  SQL (0.6ms)  describe `users_workflows`
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name asc, last_name asc LIMIT 1
+      pop
+  SQL (0.9ms)  describe `abilities_roles`
+  Role Load (0.1ms)  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 2 LIMIT 1
+  SQL (0.8ms)  describe `abilities_roles`
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from can_do_ability? at /home/joel/portal-joel/app/controllers/application_controller.rb:522)
+  Ability Load (0.1ms)  SELECT * FROM `abilities` INNER JOIN `abilities_roles` ON `abilities`.id = `abilities_roles`.ability_id WHERE (`abilities_roles`.role_id = 2 )
+===> cda: add_cim - @arr: ["add_cim"]
+===> cda: manage_cim - @arr: ["manage_cim"]
+  SQL (4.7ms)  SHOW TABLES
+  Customer Load (0.2ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '80000017-1299276009' LIMIT 1
+  SQL (1.0ms)  describe `items_workflows`
+  SQL (0.6ms)  describe `items_systems`
+  Subscription Load (12.6ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) ORDER BY itemsupps.price desc LIMIT 1
+  Subscription Load (12.1ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CimProfile Load (0.5ms)  SELECT `cim_profiles`.* FROM `cim_profiles` WHERE `cim_profiles`.`active` = 1 AND (`cim_profiles`.customer_id = '80000017-1299276009') ORDER BY created_at desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  Subscription Load (11.4ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '80000017-1299276009') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+Rendered cashiers/_cashier_sidebar.haml (171.3ms)
+Rendered shared/_cim_info.haml (5.2ms)
+Rendered shared/credit_card/_tag_one_time_payment.haml (4.1ms)
+Rendered shared/credit_card/_tag_recurring_billing.haml (3.0ms)
+Rendered shared/credit_card/_tag_tr_type.haml (3.0ms)
+Rendered shared/credit_card/_tag_tr_amount.haml (2.6ms)
+Rendered shared/credit_card/_tag_tr_name.haml (3.1ms)
+Rendered shared/credit_card/_tag_tr_number.haml (2.7ms)
+Rendered shared/credit_card/_tag_tr_cvv.haml (2.5ms)
+Rendered shared/credit_card/_tag_tr_expiration_date.haml (4.3ms)
+Rendered shared/_billing_address.haml (2.3ms)
+Rendered shared/credit_card/_tag_tr_use_service_address.haml (178.2ms)
+Rendered shared/credit_card/_tag_tr_zip.haml (3.7ms)
+Rendered shared/credit_card/_tag_tr_required_field_reminder.haml (2.4ms)
+Rendered cashiers/_form.haml (240.3ms)
+Rendered layouts/_search.haml (1.2ms)
+  SQL (0.8ms)  describe `teams_users`
+  SQL (0.9ms)  describe `team_assignments_teams`
+  Team Load (0.2ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.1ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  Team Load (0.1ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.1ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `teams_users`.`user_id` = `users`.`id` INNER JOIN `teams` ON `teams`.`id` = `teams_users`.`team_id` WHERE (teams.id in (6,7,10)) AND (users.active = 1) GROUP BY users.id ORDER BY first_name asc, last_name asc
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+Rendered layouts/_navigation_admin.html.haml (236.8ms)
+Rendered layouts/_navigation.html.haml (760.6ms)
+Rendered layouts/_headlinks.html.haml (17.7ms)
+Rendered cashiers/new.haml within layouts/application (1235.5ms)
+Completed 200 OK in 2770ms (Views: 1239.8ms | ActiveRecord: 51.3ms)
+
+
+Started POST "/spotlight_search" for 208.80.69.98 at Thu Apr 04 16:16:27 -0700 2013
+  Processing by HomeController#spotlight_search as 
+  Parameters: {"query"=>"uncle"}
+  SQL (0.9ms)  describe `teams_users`
+  SQL (0.8ms)  describe `cities_users`
+  SQL (0.6ms)  describe `user_assignments_users`
+  SQL (0.7ms)  describe `users_workflows`
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name asc, last_name asc LIMIT 1
+      pop
+  SQL (0.9ms)  describe `items_systems`
+  SQL (4.7ms)  SHOW TABLES
+  System Load (0.4ms)  SELECT `systems`.* FROM `systems` INNER JOIN `nicknames` ON `nicknames`.`system_id` = `systems`.`id` WHERE (nicknames.name like '%uncle%') LIMIT 3
+  System Load (0.5ms)  SELECT `systems`.* FROM `systems` WHERE `systems`.`active` = 1 AND (name like '%uncle%') LIMIT 6
+  System Load (0.5ms)  SELECT `systems`.* FROM `systems` WHERE `systems`.`active` = 0 AND (name like '%uncle%') LIMIT 3
+  SQL (5.1ms)  SHOW TABLES
+  System Load (0.6ms)  SELECT `systems`.* FROM `systems` INNER JOIN `addresses` ON `addresses`.`system_id` = `systems`.`id` WHERE (addresses.active = 1) AND (addresses.address like '%uncle%') LIMIT 3
+  SQL (0.8ms)  describe `users_workflows`
+  SQL (0.7ms)  describe `items_workflows`
+  SQL (0.6ms)  describe `cities_workflows`
+  SQL (4.6ms)  SHOW TABLES
+  PotentialBuilding Load (0.6ms)  SELECT `potential_buildings`.* FROM `potential_buildings` INNER JOIN `potential_nicknames` ON `potential_nicknames`.`potential_building_id` = `potential_buildings`.`id` WHERE `potential_buildings`.`system_id` IS NULL AND (potential_nicknames.name like '%uncle%') LIMIT 3
+  PotentialBuilding Load (0.3ms)  SELECT `potential_buildings`.* FROM `potential_buildings` WHERE `potential_buildings`.`system_id` IS NULL AND (name like '%uncle%') LIMIT 12
+  SQL (4.2ms)  SELECT COUNT(*) FROM `customer` WHERE `customer`.`IsActive` = 'true' AND (Name like '%uncle%') LIMIT 9
+  CACHE (0.0ms)  SELECT COUNT(*) FROM `customer` WHERE `customer`.`IsActive` = 'true' AND (Name like '%uncle%') LIMIT 9
+  Customer Load (5.1ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`IsActive` = 'true' AND (Name like '%uncle%') LIMIT 9
+  SQL (4.9ms)  SELECT COUNT(*) FROM `customer` WHERE (Notes like '%uncle%') LIMIT 2
+  SQL (4.1ms)  SELECT COUNT(*) FROM `customer` WHERE `customer`.`IsActive` = 'false' AND (Name like '%uncle%') LIMIT 3
+  SQL (0.7ms)  SELECT COUNT(*) FROM `workflows` WHERE `workflows`.`paused` IS NULL AND (name like '%uncle%') LIMIT 9
+  SQL (0.2ms)  SELECT COUNT(*) FROM `workflows` WHERE (paused is not null) AND (name like '%uncle%') LIMIT 3
+  CACHE (0.0ms)  SELECT COUNT(*) FROM `workflows` WHERE (paused is not null) AND (name like '%uncle%') LIMIT 3
+  SQL (0.2ms)  SELECT COUNT(*) FROM `companies` WHERE `companies`.`active` = 1 AND (name like '%uncle%') LIMIT 12
+  SQL (0.3ms)  SELECT COUNT(*) FROM `contacts` WHERE `contacts`.`active` = 1 AND (first_name like '%uncle%' or last_name like '%uncle%' or concat(first_name, ' ', last_name) like '%uncle%') LIMIT 12
+Rendered home/_spotlight_search_results.haml (386.9ms)
+Completed 200 OK in 1724ms (Views: 374.0ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/customers/800001A6-1313536365" for 208.80.69.98 at Thu Apr 04 16:16:31 -0700 2013
+  Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"800001A6-1313536365"}
+  SQL (1.0ms)  describe `teams_users`
+  SQL (0.8ms)  describe `cities_users`
+  SQL (0.8ms)  describe `user_assignments_users`
+  SQL (0.7ms)  describe `users_workflows`
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name asc, last_name asc LIMIT 1
+      pop
+  SQL (4.7ms)  SHOW TABLES
+  Customer Load (0.8ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '800001A6-1313536365' LIMIT 1
+  SQL (1.2ms)  describe `teams_users`
+  SQL (0.7ms)  describe `team_assignments_teams`
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from is_member_of_any_of_these_teams? at /home/joel/portal-joel/app/helpers/application_helper.rb:24)
+  Team Load (0.1ms)  SELECT * FROM `teams` INNER JOIN `teams_users` ON `teams`.id = `teams_users`.team_id WHERE (`teams_users`.user_id = 3 ) ORDER BY name ASC
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_customers__subnav_customers_html_haml__233692032_70346743318360_4343390 at /home/joel/portal-joel/app/views/customers/_subnav_customers.html.haml:4)
+  Subscription Load (2.5ms)  SELECT `subscriptions`.* FROM `subscriptions` WHERE (`subscriptions`.customer_id = '800001A6-1313536365')
+  SQL (0.8ms)  describe `abilities_roles`
+  Role Load (0.2ms)  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 2 LIMIT 1
+  SQL (4.6ms)  SHOW TABLES
+  Login Load (0.4ms)  SELECT `logins`.* FROM `logins` WHERE (`logins`.customer_id = '800001A6-1313536365') LIMIT 1
+Rendered customers/_subnav_customers.html.haml (589.2ms)
+  Subitem Load (1.1ms)  SELECT `subitems`.* FROM `subitems` WHERE (`subitems`.subscription_id = 785) LIMIT 1
+  SQL (1.1ms)  describe `items_workflows`
+  SQL (0.7ms)  describe `items_systems`
+  Item Load (0.1ms)  SELECT `items`.* FROM `items` WHERE `items`.`ListID` = '80000003-1299560056' LIMIT 1
+  Itemsupp Load (0.1ms)  SELECT `itemsupps`.* FROM `itemsupps` WHERE (`itemsupps`.item_id = '80000003-1299560056') LIMIT 1
+  CACHE (0.0ms)  SELECT `subitems`.* FROM `subitems` WHERE (`subitems`.subscription_id = 785) LIMIT 1
+  CACHE (0.0ms)  SELECT `items`.* FROM `items` WHERE `items`.`ListID` = '80000003-1299560056' LIMIT 1
+  CACHE (0.0ms)  SELECT `itemsupps`.* FROM `itemsupps` WHERE (`itemsupps`.item_id = '80000003-1299560056') LIMIT 1
+Rendered layouts/_search.haml (1.4ms)
+  Team Load (0.1ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.1ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  Team Load (0.1ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.1ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `teams_users`.`user_id` = `users`.`id` INNER JOIN `teams` ON `teams`.`id` = `teams_users`.`team_id` WHERE (teams.id in (6,7,10)) AND (users.active = 1) GROUP BY users.id ORDER BY first_name asc, last_name asc
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+Rendered layouts/_navigation_admin.html.haml (267.7ms)
+Rendered layouts/_navigation.html.haml (563.3ms)
+Rendered layouts/_headlinks.html.haml (200.6ms)
+Rendered customers/show.html.haml within layouts/application (1949.0ms)
+Completed 200 OK in 2561ms (Views: 1942.6ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/customers/800001A6-1313536365/general?_=1365117109613" for 208.80.69.98 at Thu Apr 04 16:16:34 -0700 2013
+  Processing by CustomersController#general as 
+  Parameters: {"id"=>"800001A6-1313536365", "_"=>"1365117109613"}
+  SQL (0.9ms)  describe `teams_users`
+  SQL (0.6ms)  describe `cities_users`
+  SQL (0.6ms)  describe `user_assignments_users`
+  SQL (0.7ms)  describe `users_workflows`
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name asc, last_name asc LIMIT 1
+      pop
+  SQL (4.6ms)  SHOW TABLES
+  Customer Load (0.2ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '800001A6-1313536365' LIMIT 1
+  Subscription Load (0.2ms)  SELECT `subscriptions`.* FROM `subscriptions` WHERE (`subscriptions`.customer_id = '800001A6-1313536365')
+  Note Load (0.6ms)  SELECT `notes`.* FROM `notes` WHERE (`notes`.customer_id = '800001A6-1313536365')
+  Subscription Load (1.4ms)  SELECT `subscriptions`.* FROM `subscriptions` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') ORDER BY isactive desc, created_at desc
+  Disconnect Load (0.8ms)  SELECT `disconnects`.* FROM `disconnects` INNER JOIN `subscriptions` ON `subscriptions`.`id` = `disconnects`.`subscription_id` INNER JOIN `customer` ON `customer`.`ListID` = `subscriptions`.`customer_id` WHERE `customer`.`ListID` = '800001A6-1313536365' AND `disconnects`.`done` = 'false'
+  SQL (2.5ms)  describe `abilities_roles`
+  Role Load (0.1ms)  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 2 LIMIT 1
+  Subitem Load (1.6ms)  SELECT `subitems`.* FROM `subitems` WHERE (`subitems`.subscription_id = 785)
+  SQL (0.9ms)  describe `items_workflows`
+  SQL (0.6ms)  describe `items_systems`
+  Item Load (0.1ms)  SELECT `items`.* FROM `items` WHERE `items`.`ListID` = '80000003-1299560056' LIMIT 1
+  Itemsupp Load (0.2ms)  SELECT `itemsupps`.* FROM `itemsupps` WHERE (`itemsupps`.item_id = '80000003-1299560056') LIMIT 1
+  SQL (4.7ms)  SHOW TABLES
+  Address Load (0.1ms)  SELECT `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 1 LIMIT 1
+  SQL (0.8ms)  describe `items_systems`
+  SQL (4.7ms)  SHOW TABLES
+  System Load (0.1ms)  SELECT `systems`.* FROM `systems` WHERE `systems`.`id` = 2 LIMIT 1
+  CACHE (0.0ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '800001A6-1313536365' LIMIT 1
+Rendered customers/_subscriptions_list.html.haml (989.7ms)
+Rendered customers/_disconnects.html.haml (7.2ms)
+  User Load (0.5ms)  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'joel' ORDER BY first_name asc, last_name asc LIMIT 1
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'joel' ORDER BY first_name asc, last_name asc LIMIT 1
+Rendered customers/_notes_list.html.haml (15.0ms)
+Rendered customers/_customer_info.html.haml (231.7ms)
+Rendered customers/_general.html.haml (1445.3ms)
+Completed 200 OK in 2323ms (Views: 1432.6ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/cashiers/new/800001A6-1313536365" for 208.80.69.98 at Thu Apr 04 16:17:51 -0700 2013
+  Processing by CashiersController#new as HTML
+  Parameters: {"id"=>"800001A6-1313536365"}
+  SQL (0.9ms)  describe `teams_users`
+  SQL (0.6ms)  describe `cities_users`
+  SQL (1.0ms)  describe `user_assignments_users`
+  SQL (1.0ms)  describe `users_workflows`
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY first_name asc, last_name asc LIMIT 1
+      pop
+  SQL (1.0ms)  describe `abilities_roles`
+  Role Load (0.2ms)  SELECT `roles`.* FROM `roles` WHERE `roles`.`id` = 2 LIMIT 1
+  SQL (0.8ms)  describe `abilities_roles`
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from can_do_ability? at /home/joel/portal-joel/app/controllers/application_controller.rb:522)
+  Ability Load (0.1ms)  SELECT * FROM `abilities` INNER JOIN `abilities_roles` ON `abilities`.id = `abilities_roles`.ability_id WHERE (`abilities_roles`.role_id = 2 )
+===> cda: add_cim - @arr: ["add_cim"]
+===> cda: manage_cim - @arr: ["manage_cim"]
+  SQL (4.7ms)  SHOW TABLES
+  Customer Load (0.2ms)  SELECT `customer`.* FROM `customer` WHERE `customer`.`ListID` = '800001A6-1313536365' LIMIT 1
+  SQL (0.9ms)  describe `items_workflows`
+  SQL (0.7ms)  describe `items_systems`
+  Subscription Load (11.5ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) ORDER BY itemsupps.price desc LIMIT 1
+  Subscription Load (13.7ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CimProfile Load (0.6ms)  SELECT `cim_profiles`.* FROM `cim_profiles` WHERE `cim_profiles`.`active` = 1 AND (`cim_profiles`.customer_id = '800001A6-1313536365') ORDER BY created_at desc LIMIT 1
+  SQL (5.5ms)  SHOW TABLES
+  CimAccount Load (1.6ms)  SELECT `cim_accounts`.* FROM `cim_accounts` WHERE `cim_accounts`.`active` = 1 AND (`cim_accounts`.cim_profile_id = 187) ORDER BY created_at desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  Subscription Load (12.4ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Yearly') ORDER BY itemsupps.price desc LIMIT 1
+  CimAccount Load (1.0ms)  SELECT `cim_accounts`.* FROM `cim_accounts` INNER JOIN `cim_profiles` ON `cim_accounts`.cim_profile_id = `cim_profiles`.id WHERE ((`cim_profiles`.customer_id = '800001A6-1313536365')) AND (cim_accounts.active = true) ORDER BY cim_accounts.created_at desc LIMIT 1
+  CACHE (0.0ms)  SELECT `subscriptions`.* FROM `subscriptions` INNER JOIN `subitems` ON `subitems`.`subscription_id` = `subscriptions`.`id` INNER JOIN `items` ON `items`.`ListID` = `subitems`.`item_id` INNER JOIN `itemsupps` ON `itemsupps`.`item_id` = `items`.`ListID` WHERE (`subscriptions`.customer_id = '800001A6-1313536365') AND (subscriptions.isactive = true) AND (subscriptions.frequency = 'Monthly') ORDER BY itemsupps.price desc LIMIT 1
+Rendered cashiers/_cashier_sidebar.haml (2.4ms)
+Rendered shared/_cim_info.haml (4.3ms)
+Rendered shared/credit_card/_tag_one_time_payment.haml (6.2ms)
+Rendered shared/credit_card/_tag_recurring_billing.haml (3.8ms)
+Rendered shared/credit_card/_tag_tr_type.haml (3.7ms)
+Rendered shared/credit_card/_tag_tr_amount.haml (3.2ms)
+Rendered shared/credit_card/_tag_tr_name.haml (3.5ms)
+Rendered shared/credit_card/_tag_tr_number.haml (3.0ms)
+Rendered shared/credit_card/_tag_tr_cvv.haml (3.0ms)
+Rendered shared/credit_card/_tag_tr_expiration_date.haml (5.5ms)
+Rendered shared/_billing_address.haml (3.0ms)
+Rendered shared/credit_card/_tag_tr_use_service_address.haml (3.6ms)
+Rendered shared/credit_card/_tag_tr_zip.haml (2.7ms)
+Rendered shared/credit_card/_tag_tr_required_field_reminder.haml (2.1ms)
+Rendered cashiers/_form.haml (279.8ms)
+Rendered layouts/_search.haml (1.3ms)
+  SQL (0.9ms)  describe `teams_users`
+  SQL (0.8ms)  describe `team_assignments_teams`
+  Team Load (0.1ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.2ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  Team Load (0.2ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  Team Load (0.2ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  User Load (0.1ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `teams_users`.`user_id` = `users`.`id` INNER JOIN `teams` ON `teams`.`id` = `teams_users`.`team_id` WHERE (teams.id in (6,7,10)) AND (users.active = 1) GROUP BY users.id ORDER BY first_name asc, last_name asc
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 3 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from sales at /home/joel/portal-joel/app/models/team.rb:21)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 3 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (1,15,26,5,2))
+  CACHE (0.0ms)  SELECT `teams`.* FROM `teams` WHERE `teams`.`id` = 2 ORDER BY name ASC LIMIT 1
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from dev at /home/joel/portal-joel/app/models/team.rb:17)
+  CACHE (0.0ms)  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.id = `teams_users`.user_id WHERE `users`.`active` = 1 AND (`teams_users`.team_id = 2 ) ORDER BY first_name asc, last_name asc
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+DEPRECATION WARNING: Having additional attributes on the join table of a has_and_belongs_to_many association is deprecated and will be removed in Rails 3.1. Please use a has_many :through association instead. (called from has_sales_authority at /home/joel/portal-joel/app/models/user.rb:71)
+  CACHE (0.0ms)  SELECT `teams`.*, t0.user_id as the_parent_record_id FROM `teams` INNER JOIN `teams_users` t0 ON `teams`.id = t0.team_id WHERE (t0.user_id IN (25,1,3,12,11,21,2,7))
+Rendered layouts/_navigation_admin.html.haml (262.4ms)
+Rendered layouts/_navigation.html.haml (852.6ms)
+Rendered layouts/_headlinks.html.haml (19.6ms)
+Rendered cashiers/new.haml within layouts/application (1388.0ms)
+Completed 200 OK in 2917ms (Views: 1392.3ms | ActiveRecord: 61.4ms)
+
