@@ -23,7 +23,7 @@ class ToHamlDecorator
  end
 
  def compose_style
-  str = ":style=>'"
+  str = ":style=>'display:block;"
   str << red_font 
   str << "'"
  end
