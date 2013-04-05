@@ -29,7 +29,8 @@ class RipperManager
  end
 
  def render_page 
-  @decorator.generate_complete_render_string
+  #@decorator.generate_complete_render_string
+  @decorator.complete_string_array
  end
 
 end

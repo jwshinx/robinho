@@ -1,7 +1,9 @@
 class ToHamlDecorator
    
+ attr_reader :complete_string_array 
+
  def initialize
-  @complete_haml_string_array = [] 
+  @complete_string_array = [] 
  end
 
  def decorate text
@@ -15,7 +17,7 @@ class ToHamlDecorator
   else
    str = compose_span( text, :black_font )
   end
-  @complete_haml_string_array << str 
+  @complete_string_array << str 
   str
  end
  
@@ -59,6 +61,6 @@ class ToHamlDecorator
   #str = ''
   #@complete_haml_string_array.each { |s| str << s }
   #puts "#{@complete_haml_string_array.join('').inspect}"
-  @complete_haml_string_array.join('')
+  @complete_string_array.join('')
  end
 end
