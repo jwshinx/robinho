@@ -31,11 +31,12 @@ class ToHamlDecorator
 
  def add_style arg
   str = ''
-  if arg == :red_font
+  case arg
+  when :red_font
    str << red_font
-  elsif arg == :blue_font
+  when :blue_font
    str << blue_font
-  elsif arg == :purple_font
+  when :purple_font
    str << purple_font
   else
    str << black_font
@@ -44,7 +45,10 @@ class ToHamlDecorator
 
  def red_font; 'color:red;'; end
  def blue_font; 'color:blue;'; end
- def green_font; 'color:#008000;'; end
- def black_font; 'color:#000000;'; end
+ def green_font; 'color:green;'; end
+ def black_font; 'color:black;'; end
 
+ def generate_complete_render_string
+ 
+ end
 end
