@@ -5,6 +5,9 @@ require 'to_haml_decorator'
 
 puts '---> Start <----------------------------------------------------------------'
 
-RipperManager.new( 'pattern.ezr', ToHamlDecorator.new ).run( 'development.log' )
+@ripp = RipperManager.new( 'pattern.ezr', ToHamlDecorator.new )
+@ripp.run( 'development.log' )
 
+puts '---> Mid <------------------------------------------------------------------'
+puts "#{@ripp.render_page}"
 puts '---> End <------------------------------------------------------------------'

@@ -1,15 +1,22 @@
 class ToHamlDecorator
- 
+   
+ def initialize
+  @complete_haml_string_array = [] 
+ end
+
  def decorate text
+  str = ''
   keyword = text.chomp.split[0]
   case keyword
   when 'Rendered'
-   compose_span( text, :red_font )
+   str = compose_span( text, :red_font )
   when 'SQL'
-   compose_span( text, :blue_font )
+   str = compose_span( text, :blue_font )
   else
-   compose_span( text, :black_font )
+   str = compose_span( text, :black_font )
   end
+  @complete_haml_string_array << str 
+  str
  end
  
  def compose_span text, *arg 
@@ -49,6 +56,9 @@ class ToHamlDecorator
  def black_font; 'color:black;'; end
 
  def generate_complete_render_string
- 
+  #str = ''
+  #@complete_haml_string_array.each { |s| str << s }
+  #puts "#{@complete_haml_string_array.join('').inspect}"
+  @complete_haml_string_array.join('')
  end
 end

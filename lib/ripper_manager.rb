@@ -23,7 +23,13 @@ class RipperManager
  def process_pattern( pattern ) 
   return if pattern.empty? || pattern =~ /^#/
   #raise "Expected print <xpath>" unless tokens.size == 2
-  @r.on_path( /#{pattern.chomp}/ ) { |e| puts @decorator.decorate( e ) }
+  @r.on_path( /#{pattern.chomp}/ ) do |e| 
+   puts @decorator.decorate( e ) 
+  end
+ end
+
+ def render_page 
+  @decorator.generate_complete_render_string
  end
 
 end
